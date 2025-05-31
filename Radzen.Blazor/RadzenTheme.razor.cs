@@ -36,7 +36,7 @@ namespace Radzen.Blazor
 
         private string WcagHref => $"{Path}/{theme}-wcag.css?v={Version}";
 
-        private string Path => Embedded ? $"_content/Radzen.Blazor/css" : "css";
+        private string Path => Embedded ? $"_content/DR.Radzen.Blazor/css" : "css";
 
         private bool Embedded => theme switch
         {
