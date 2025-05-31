@@ -47,11 +47,16 @@ jobs:
       uses: actions/checkout@v3
       with:
         ref: 'refs/tags/v${{ needs.get-version.outputs.VERSION }}'
-    - name: Setup dotnet version
+    - name: Setup dotnet version 9.0
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: |
           9.0.x
+    - name: Setup dotnet version 8.0
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: |
+          8.0.x
     - name: Pack nuget package
       run: dotnet pack -c release --output nupkgs /p:PackageVersion=${{ needs.get-version.outputs.VERSION }} /p:AssemblyVersion=${{ needs.get-version.outputs.VERSION }} /p:Version=${{ needs.get-version.outputs.VERSION }}
       working-directory: ./Radzen.Blazor
