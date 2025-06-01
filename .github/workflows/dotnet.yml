@@ -57,6 +57,9 @@ jobs:
       with:
         dotnet-version: |
           8.0.x
+    - name: build
+      run: dotnet build -c release 
+      working-directory: ./Radzen.Blazor
     - name: Pack nuget package
       run: dotnet pack -c release --output nupkgs /p:PackageVersion=${{ needs.get-version.outputs.VERSION }} /p:AssemblyVersion=${{ needs.get-version.outputs.VERSION }} /p:Version=${{ needs.get-version.outputs.VERSION }}
       working-directory: ./Radzen.Blazor
